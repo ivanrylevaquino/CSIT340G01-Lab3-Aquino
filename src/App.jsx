@@ -38,28 +38,29 @@ const Total = (props) => {
 }
 
 const App = () => {
-  const course = 'Introduction to Computer Systems'
-
-  const parts = [
-    {
-      name: 'Introduction to Computer Systems',
-      exercises: 3
-    },
-    {
-      name: 'Information Assurance and Security 2',
-      exercises: 3
-    },
-    {
-      name: 'Applied AI',
-      exercises: 3
-    }
-  ]
+  const course = {
+    name: 'Introduction to Computer Systems',
+    parts: [
+      {
+        name: 'Introduction to Computer Systems',
+        exercises: 3
+      },
+      {
+        name: 'Information Assurance and Security 2',
+        exercises: 3
+      },
+      {
+        name: 'Applied AI',
+        exercises: 3
+      }
+    ]
+  }
 
   return (
     <div>
-      <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
     </div>
   )
 }
