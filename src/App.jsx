@@ -14,47 +14,52 @@ const Content = (props) => {
   return (
     <div>
       <Part
-        name={props.part1.name}
-        exercises={props.part1.exercises}
+        name={props.parts[0].name}
+        exercises={props.parts[0].exercises}
       />
       <Part
-        name={props.part2.name}
-        exercises={props.part2.exercises}
+        name={props.parts[1].name}
+        exercises={props.parts[1].exercises}
       />
       <Part
-        name={props.part3.name}
-        exercises={props.part3.exercises}
+        name={props.parts[2].name}
+        exercises={props.parts[2].exercises}
       />
     </div>
   )
 }
 
+const Total = (props) => {
+  return (
+    <p>
+      Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}
+    </p>
+  )
+}
+
 const App = () => {
-  const course = 'YOUR CIT-U COURSE'
+  const course = 'Introduction to Computer Systems'
 
-  const part1 = {
-    name: 'YOUR SUBJECT 1',
-    exercises: 3
-  }
-
-  const part2 = {
-    name: 'YOUR SUBJECT 2',
-    exercises: 3
-  }
-
-  const part3 = {
-    name: 'YOUR SUBJECT 3',
-    exercises: 3
-  }
+  const parts = [
+    {
+      name: 'Introduction to Computer Systems',
+      exercises: 3
+    },
+    {
+      name: 'Information Assurance and Security 2',
+      exercises: 3
+    },
+    {
+      name: 'Applied AI',
+      exercises: 3
+    }
+  ]
 
   return (
     <div>
       <Header course={course} />
-      <Content
-        part1={part1}
-        part2={part2}
-        part3={part3}
-      />
+      <Content parts={parts} />
+      <Total parts={parts} />
     </div>
   )
 }
